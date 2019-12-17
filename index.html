@@ -2,18 +2,21 @@
 <html>
 <head>
 	<title>Deathroll</title>
+	<style>*{font-family: Arial, sans-serif;}body {text-align:center;}li{list-style-type:none;margin:0;padding:0;}ul{margin:0;padding:20px;}input{padding:10px 20px;max-width:200px; width:100%;}.buttons{text-align:center;margin:20px auto;max-width:240px;width:100%;}.buttons button{outline:none;cursor:pointer;padding:10px 20px;background:none;border: 1px solid #ccc;width: 100%;font-size:16px;margin:3px 0;}.buttons button.clear{border: 1px dotted #ccc;color:#999;}.buttons button:hover{border-color: #333;}.buttons button.clear:hover{border-color: #f60;color:#f60;}</style>
 </head>
 <body>
 	<main>
-		<h1>Deathroll Club</h1>
-		<p>You roll. You win. You lose.</p>
-		<input id="startNumber" type="number" value="1000" />
+	<h1>Deathroll Club</h1>
+	<p>You roll. You win. You lose.</p>
+	<input id="startNumber" type="number" value="1000" />
+	<div class="buttons">
 		<button onclick="roll()">Roll</button>
-		<button onclick="reset()">Clear</button>
-		<ul id="results">
+		<button onclick="reset()" class="clear">Clear</button>
+	</div>
+	<ul id="results">
 
-		</ul>
-	</main>
+	</ul>
+</main>
 	<footer>
 		<p>&copy; Gank of America 2019 <script type="text/javascript">new Date().getFullYear()</script></p>
 	</footer>

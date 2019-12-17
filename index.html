@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Deathroll</title>
+</head>
+<body>
+	<main>
+		<h1>Deathroll Club</h1>
+		<p>You roll. You win. You lose.</p>
+		<input id="startNumber" type="number" value="1000" />
+		<button onclick="roll()">Roll</button>
+		<button onclick="reset()">Clear</button>
+		<ul id="results">
+
+		</ul>
+	</main>
+<script type="text/javascript">
+	var resultsList = document.getElementById("results");
+
+	var pastResults = [];
+	var lastRoll;
+	var isGameOver = false;
+
+	function roll() {
+		if (lastRoll == null) {
+			lastRoll = document.getElementById("startNumber").value;
+		}
+
+		if (isGameOver) return;
+
+		// last roll
+		lastRoll = Math.floor(Math.random() * Math.floor(lastRoll) + 1);
+
+		console.log("roll was");
+		console.log(lastRoll);
+
+		pastResults.push(lastRoll);
+
+		var li = document.createElement("LI");
+		li.appendChild(document.createTextNode(lastRoll.toString()));
+		resultsList.appendChild(li);
+
+		if (lastRoll <= 1) {
+			gameOver();
+		}
+	}
+
+	function reset() {
+		lastRoll = null;
+		resultsList.innerHTML = "";
+		isGameOver = false;
+	}
+
+	function gameOver() {
+		isGameOver = true;
+		var h2 = document.createElement("H2");
+		h2.innerHTML = "Game over";
+
+		resultsList.append(h2);
+	}
+
+</script>
+</body>
+</html>

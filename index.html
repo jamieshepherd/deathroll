@@ -25,7 +25,6 @@
 <script type="text/javascript">
 	var resultsList = document.getElementById("results");
 
-	var pastResults = [];
 	var lastRoll;
 	var isGameOver = false;
 
@@ -36,21 +35,13 @@
 
 		if (isGameOver) return;
 
-		// last roll
 		lastRoll = Math.floor(Math.random() * Math.floor(lastRoll) + 1);
-
-		console.log("roll was");
-		console.log(lastRoll);
-
-		pastResults.push(lastRoll);
 
 		var li = document.createElement("LI");
 		li.appendChild(document.createTextNode(lastRoll.toString()));
 		resultsList.appendChild(li);
 
-		if (lastRoll <= 1) {
-			gameOver();
-		}
+		if (lastRoll <= 1) gameOver();
 	}
 
 	function reset() {
@@ -60,11 +51,11 @@
 	}
 
 	function gameOver() {
-		isGameOver = true;
 		var h2 = document.createElement("H2");
-		h2.innerHTML = "Game over";
+		h2.innerHTML = "Game Over";
 
 		resultsList.append(h2);
+		isGameOver = true;
 	}
 
 </script>
